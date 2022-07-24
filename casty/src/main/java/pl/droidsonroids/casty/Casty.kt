@@ -308,7 +308,7 @@ open class Casty : OnMediaLoadedListener {
         fun onCastSessionUpdated(castSession: CastSession?)
     }
 
-    companion object {
+    companion object Factory {
         private const val TAG = "Casty"
         var receiverId = CastMediaControlIntent.DEFAULT_MEDIA_RECEIVER_APPLICATION_ID
         var customCastOptions: CastOptions? = null
@@ -319,7 +319,7 @@ open class Casty : OnMediaLoadedListener {
          * @param receiverId the custom receiver ID, e.g. Styled Media Receiver - with custom logo and background
          */
         fun configure(receiverId: String) {
-            Companion.receiverId = receiverId
+            Factory.receiverId = receiverId
         }
 
         /**
@@ -337,6 +337,7 @@ open class Casty : OnMediaLoadedListener {
          * @param activity [Activity] in which Casty object is created
          * @return the Casty object
          */
+        @JvmStatic
         fun create(activity: Activity): Casty {
             val playServicesState =
                 GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(activity)
