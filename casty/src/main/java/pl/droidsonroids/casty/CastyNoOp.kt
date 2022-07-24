@@ -35,11 +35,11 @@ internal class CastyNoOp : Casty() {
         //no-op
     }
 
-    override fun setOnConnectChangeListener(onConnectChangeListener: OnConnectChangeListener?) {
+    override fun setOnConnectChangeListener(onConnectChangeListener: OnConnectChangeListener) {
         //no-op
     }
 
-    override fun setOnCastSessionUpdatedListener(onCastSessionUpdatedListener: OnCastSessionUpdatedListener?) {
+    override fun setOnCastSessionUpdatedListener(onCastSessionUpdatedListener: OnCastSessionUpdatedListener) {
         //no-op
     }
 
