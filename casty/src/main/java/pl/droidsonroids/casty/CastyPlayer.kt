@@ -26,14 +26,14 @@ open class CastyPlayer {
      * Plays the current media file if it is paused
      */
     open fun play() {
-        if (isPaused) remoteMediaClient.play()
+        if (isPaused()) remoteMediaClient.play()
     }
 
     /**
      * Pauses the current media file if it is playing
      */
     open fun pause() {
-        if (isPlaying) remoteMediaClient.pause()
+        if (isPlaying()) remoteMediaClient.pause()
     }
 
     /**
@@ -61,24 +61,27 @@ open class CastyPlayer {
      *
      * @return true if the media file is playing, false otherwise
      */
-    open val isPlaying: Boolean
-        get() = remoteMediaClient.isPlaying
+    open fun isPlaying(): Boolean {
+        return remoteMediaClient.isPlaying
+    }
 
     /**
      * Checks if the media file is paused
      *
      * @return true if the media file is paused, false otherwise
      */
-    open val isPaused: Boolean
-        get() = remoteMediaClient.isPaused
+    open fun isPaused(): Boolean {
+        return remoteMediaClient.isPaused
+    }
 
     /**
      * Checks if the media file is buffering
      *
      * @return true if the media file is buffering, false otherwise
      */
-    open val isBuffering: Boolean
-        get() = remoteMediaClient.isBuffering
+    open fun isBuffering(): Boolean {
+        return remoteMediaClient.isBuffering
+    }
 
     /**
      * Tries to load the media file and play it in the [ExpandedControlsActivity]
