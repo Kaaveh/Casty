@@ -204,18 +204,22 @@ open class Casty : OnMediaLoadedListener {
     private fun onConnected(castSession: CastSession) {
         this.castSession = castSession
         castyPlayer.setRemoteMediaClient(castSession.remoteMediaClient!!)
-        onConnectChangeListener.onConnected()
-        onCastSessionUpdatedListener.onCastSessionUpdated(
-            castSession
-        )
+        if (::onConnectChangeListener.isInitialized)
+            onConnectChangeListener.onConnected()
+        if (::onCastSessionUpdatedListener.isInitialized)
+            onCastSessionUpdatedListener.onCastSessionUpdated(
+                castSession
+            )
     }
 
     private fun onDisconnected() {
         castSession = null
-        onConnectChangeListener.onDisconnected()
-        onCastSessionUpdatedListener.onCastSessionUpdated(
-            null
-        )
+        if (::onConnectChangeListener.isInitialized)
+            onConnectChangeListener.onDisconnected()
+        if (::onCastSessionUpdatedListener.isInitialized)
+            onCastSessionUpdatedListener.onCastSessionUpdated(
+                null
+            )
     }
 
     private fun createActivityCallbacks(): ActivityLifecycleCallbacks {
