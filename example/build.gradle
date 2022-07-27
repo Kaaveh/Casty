@@ -24,6 +24,7 @@ dependencies {
     implementation project(':casty')
     implementation "androidx.core:core-ktx:1.8.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "cat.ereza:customactivityoncrash:2.4.0"
 }
 
 repositories {
